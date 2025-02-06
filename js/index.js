@@ -36,7 +36,7 @@ function getComputerChoice() {
 // }
 
 // creating a function that will determine the winner and add to the score
-
+// ****NEED TO CONVERT THIS ALL TO FUNCTIONS BELOW FOR BUTTON ACTION"
 function playRound(humanChoice, computerChoice) {
   const humanSelection = getHumanChoice();
   const computerSelection = getComputerChoice();
