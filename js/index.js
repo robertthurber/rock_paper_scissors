@@ -26,14 +26,14 @@ function getComputerChoice() {
 }
 
 //creating a function getting the human choice. Prompts users to enter a choice. make sure string is in correct formate
-function getHumanChoice() {
-  let userChoice = prompt("Choose: Rock, Paper, or Scissors");
-  //here we are just taking what the user enters and converting it to the style that i need for checking, not making sure the user enters correct thing
-  let firstCharUserChoice = userChoice.charAt(0).toUpperCase();
-  let restOfString = userChoice.substring(1).toLowerCase();
-  let humanSelection = firstCharUserChoice + restOfString;
-  return humanSelection;
-}
+// function getHumanChoice() {
+//   let userChoice = prompt("Choose: Rock, Paper, or Scissors");
+//   //here we are just taking what the user enters and converting it to the style that i need for checking, not making sure the user enters correct thing
+//   let firstCharUserChoice = userChoice.charAt(0).toUpperCase();
+//   let restOfString = userChoice.substring(1).toLowerCase();
+//   let humanSelection = firstCharUserChoice + restOfString;
+//   return humanSelection;
+// }
 
 // creating a function that will determine the winner and add to the score
 
@@ -68,14 +68,31 @@ function playRound(humanChoice, computerChoice) {
     console.log("Something went wrong");
   }
 }
-function playGame() {
-  let i = 0;
-  while (i <= 5) {
-    playRound();
-    console.log("Computer score is: " + computerScore);
-    console.log("Human score is: " + humanScore);
-    i++;
-  }
-}
+//grabbing the div container
+const divContainer = document.querySelector("div");
+//grabbing the h1 tag
+const h1 = document.querySelector("h1");
 
-playGame();
+//creating the three buttons
+const rock_button = document.createElement("button");
+rock_button.textContent = "Rock";
+const paper_button = document.createElement("button");
+paper_button.textContent = "Paper";
+const scissors_button = document.createElement("button");
+scissors_button.textContent = "Scissors";
+//adding buttons to the div container
+divContainer.appendChild(rock_button);
+divContainer.appendChild(paper_button);
+divContainer.appendChild(scissors_button);
+
+const span = document.createElement("span");
+span.textContent = "Ultimate Rock Paper Scissors";
+h1.appendChild(span);
+
+rock_button.addEventListener("click", () => {
+  let userSelection = "Rock";
+  if (userSelection == "Rock" && getComputerChoice() == "Rock") {
+    span.textContent = "It's a tie, please select again ";
+    h1.appendChild(span);
+  }
+});
